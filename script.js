@@ -32,7 +32,8 @@ total += producto.precio;
 
 let item = document.createElement("li");
 
-item.innerHTML = producto.nombre + " $" + producto.precio +
+item.innerHTML =
+producto.nombre + " $" + producto.precio +
 " <button onclick='eliminar("+i+")'>❌</button>";
 
 lista.appendChild(item);
@@ -55,7 +56,7 @@ mensaje += "- " + carrito[i].nombre + " $" + carrito[i].precio + "%0A";
 
 mensaje += "Total: $" + total;
 
-let numero = "5492212231836";
+let numero = "549TU_NUMERO";
 
 window.open("https://wa.me/" + numero + "?text=" + mensaje);
 
