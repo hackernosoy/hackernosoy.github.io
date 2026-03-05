@@ -56,7 +56,7 @@ mensaje += "- " + carrito[i].nombre + " $" + carrito[i].precio + "%0A";
 
 mensaje += "Total: $" + total;
 
-let numero = "549TU_NUMERO";
+let numero = "5492212231836";
 
 window.open("https://wa.me/" + numero + "?text=" + mensaje);
 
