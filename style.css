@@ -40,3 +40,15 @@ display:inline-block;
 li{
 margin:10px;
 }
+footer{
+margin-top:40px;
+padding:20px;
+background:#0a0a0a;
+color:white;
+}
+
+footer a{
+color:#25D366;
+text-decoration:none;
+font-weight:bold;
+}
