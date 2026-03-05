@@ -23,13 +23,6 @@ font-size:30px;
 font-weight:bold;
 }
 
-.carrito{
-background:#1c1c1c;
-margin:30px;
-padding:20px;
-border-radius:10px;
-}
-
 .productos{
 display:flex;
 justify-content:center;
@@ -43,6 +36,11 @@ background:#1c1c1c;
 padding:20px;
 border-radius:10px;
 width:220px;
+}
+
+.stock{
+font-size:14px;
+color:#00e676;
 }
 
 button{
@@ -59,42 +57,22 @@ button:hover{
 background:#00e676;
 }
 
-.ventajas{
-padding:40px;
+.agotado{
+background:#444;
+cursor:not-allowed;
 }
 
-.como-comprar{
-padding:40px;
+.carrito{
+background:#1c1c1c;
+margin:30px;
+padding:20px;
+border-radius:10px;
 }
 
 footer{
 background:#000;
 padding:20px;
 margin-top:40px;
-}
-
-.flotante{
-position:fixed;
-right:20px;
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-color:white;
-text-decoration:none;
-}
-
-.whatsapp{
-background:#25D366;
-bottom:90px;
-}
-
-.instagram{
-background:#E1306C;
-bottom:20px;
 }
 
 </style>
@@ -106,7 +84,40 @@ bottom:20px;
 TRIDADO
 </header>
 
-<!-- CARRITO ARRIBA -->
+<!-- PRODUCTOS ARRIBA -->
+<section class="productos">
+
+<div class="producto">
+
+<h3>Generala</h3>
+
+<p>$7000</p>
+
+<p class="stock">Stock: <span id="stockGenerala">5</span></p>
+
+<button id="btnGenerala" onclick="agregar('Generala',7000,'Generala')">
+Agregar al carrito
+</button>
+
+</div>
+
+<div class="producto">
+
+<h3>4 en Raya</h3>
+
+<p>$9000</p>
+
+<p class="stock">Stock: <span id="stock4enRaya">5</span></p>
+
+<button id="btn4enRaya" onclick="agregar('4 en Raya',9000,'4enRaya')">
+Agregar al carrito
+</button>
+
+</div>
+
+</section>
+
+<!-- CARRITO ABAJO -->
 <section class="carrito">
 
 <h2>🛒 Carrito</h2>
@@ -119,42 +130,6 @@ TRIDADO
 
 </section>
 
-<!-- PRODUCTOS -->
-<section class="productos">
-
-<div class="producto">
-<h3>Generala</h3>
-<p>$7000</p>
-<button onclick="agregar('Generala',7000)">Agregar al carrito</button>
-</div>
-
-<div class="producto">
-<h3>4 en Raya</h3>
-<p>$9000</p>
-<button onclick="agregar('4 en Raya',9000)">Agregar al carrito</button>
-</div>
-
-</section>
-
-<section class="ventajas">
-<h2>⭐ ¿Por qué comprar en TRIDADO?</h2>
-<p>✔ Productos impresos en 3D</p>
-<p>✔ Diseños únicos</p>
-<p>✔ Compra rápida por WhatsApp</p>
-<p>✔ Emprendimiento independiente</p>
-</section>
-
-<section class="como-comprar">
-
-<h2>📦 Cómo comprar</h2>
-
-<p>1️⃣ Elegí el producto</p>
-<p>2️⃣ Agrégalo al carrito</p>
-<p>3️⃣ Envía el pedido por WhatsApp</p>
-<p>4️⃣ Coordinamos entrega</p>
-
-</section>
-
 <footer>
 
 <p>© 2026 TRIDADO</p>
@@ -162,30 +137,42 @@ TRIDADO
 
 </footer>
 
-<a class="flotante whatsapp" href="https://wa.me/5492212231836" target="_blank">💬</a>
-
-<a class="flotante instagram" href="https://instagram.com/t_r_i_d_a_d_o" target="_blank">📸</a>
-
 <script>
 
 let carrito = [];
 let total = 0;
 
-function agregar(nombre,precio){
+let stock = {
+Generala:5,
+"4enRaya":5
+};
+
+function agregar(nombre,precio,id){
+
+if(stock[id] <= 0) return;
 
 carrito.push({nombre,precio});
 total += precio;
 
+stock[id]--;
+
 actualizar();
+actualizarStock();
 
 }
 
 function eliminar(i){
 
+let producto = carrito[i].nombre;
+
+if(producto === "Generala") stock.Generala++;
+if(producto === "4 en Raya") stock["4enRaya"]++;
+
 total -= carrito[i].precio;
 carrito.splice(i,1);
 
 actualizar();
+actualizarStock();
 
 }
 
@@ -201,6 +188,25 @@ lista.innerHTML += `<li>${p.nombre} - $${p.precio} <button onclick="eliminar(${i
 });
 
 document.getElementById("total").innerText = total;
+
+}
+
+function actualizarStock(){
+
+document.getElementById("stockGenerala").innerText = stock.Generala;
+document.getElementById("stock4enRaya").innerText = stock["4enRaya"];
+
+if(stock.Generala === 0){
+let b = document.getElementById("btnGenerala");
+b.innerText="Agotado";
+b.classList.add("agotado");
+}
+
+if(stock["4enRaya"] === 0){
+let b = document.getElementById("btn4enRaya");
+b.innerText="Agotado";
+b.classList.add("agotado");
+}
 
 }
 
