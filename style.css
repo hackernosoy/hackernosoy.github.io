@@ -52,3 +52,29 @@ color:#25D366;
 text-decoration:none;
 font-weight:bold;
 }
+.redes{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.wsp{
+background:#25D366;
+color:white;
+padding:12px 15px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.ig{
+background:#E1306C;
+color:white;
+padding:12px 15px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
