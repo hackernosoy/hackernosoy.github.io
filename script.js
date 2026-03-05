@@ -1,34 +1,37 @@
-let carrito = [];
-let total = 0;
-
-function agregar(nombre,precio){
-
-carrito.push(nombre + " $" + precio);
-total += precio;
-
-let lista = document.getElementById("lista");
-
-let item = document.createElement("li");
-item.textContent = nombre + " $" + precio;
-
-lista.appendChild(item);
-
-document.getElementById("total").textContent = total;
-
+body{
+font-family: Arial;
+background:#f2f2f2;
+text-align:center;
 }
 
-function enviar(){
+h1{
+margin-top:20px;
+}
 
-let mensaje = "Hola quiero comprar:%0A";
+.producto{
+background:white;
+padding:20px;
+margin:15px;
+display:inline-block;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+width:200px;
+}
 
-carrito.forEach(p=>{
-mensaje += "- " + p + "%0A";
-});
+button{
+background:#25D366;
+color:white;
+border:none;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
 
-mensaje += "Total: $" + total;
-
-let numero = "549TU_NUMERO";
-
-window.open("https://wa.me/" + numero + "?text=" + mensaje);
-
+#carrito{
+background:white;
+padding:20px;
+margin-top:30px;
+border-radius:10px;
+display:inline-block;
 }
