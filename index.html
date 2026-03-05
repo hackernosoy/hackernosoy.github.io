@@ -1,33 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta name="google-adsense-account" content="ca-pub-4754170332242714">
 <meta charset="UTF-8">
 <title>TRIDADO</title>
-<link rel="stylesheet" href="style.css">
+
+<meta name="google-adsense-account" content="ca-pub-4754170332242714">
+
+<style>
+
+body{
+font-family: Arial;
+background:#111;
+color:white;
+margin:0;
+text-align:center;
+}
+
+header{
+background:#000;
+padding:20px;
+font-size:30px;
+font-weight:bold;
+}
+
+.productos{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:40px;
+flex-wrap:wrap;
+}
+
+.producto{
+background:#1c1c1c;
+padding:20px;
+border-radius:10px;
+width:220px;
+}
+
+button{
+background:#00c853;
+border:none;
+padding:10px;
+color:white;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#00e676;
+}
+
+.carrito{
+background:#1c1c1c;
+margin:30px;
+padding:20px;
+border-radius:10px;
+}
+
+.ventajas{
+padding:40px;
+}
+
+.como-comprar{
+padding:40px;
+}
+
+footer{
+background:#000;
+padding:20px;
+margin-top:40px;
+}
+
+.flotante{
+position:fixed;
+right:20px;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+color:white;
+text-decoration:none;
+}
+
+.whatsapp{
+background:#25D366;
+bottom:90px;
+}
+
+.instagram{
+background:#E1306C;
+bottom:20px;
+}
+
+</style>
 </head>
 
 <body>
 
-<header class="titulo">
-<h1>TRIDADO</h1>
-<p>Juegos de mesa impresos en 3D</p>
+<header>
+TRIDADO
 </header>
 
-<h2>Productos</h2>
-
-<div class="productos">
-
-  
- <section class="comprar">
-
-<h2>¿Cómo comprar?</h2>
-
-<p>1️⃣ Agrega el producto al carrito</p>
-<p>2️⃣ Presiona "Enviar pedido por WhatsApp"</p>
-<p>3️⃣ Confirma tu pedido</p>
-
+<section class="productos">
 
 <div class="producto">
 <h3>Generala</h3>
@@ -40,65 +119,106 @@
 <p>$9000</p>
 <button onclick="agregar('4 en Raya',9000)">Agregar al carrito</button>
 </div>
-    <section class="ventajas">
 
-<h2>¿Por qué comprar en TRIDADO?</h2>
-
-<div class="ventaja">🧊 Impresión 3D de calidad</div>
-<div class="ventaja">🎲 Juegos divertidos</div>
-<div class="ventaja">📦 Fácil de transportar</div>
-<div class="ventaja">📲 Pedido rápido por WhatsApp</div>
 </section>
-  
 
-
-
-
-  
-
-
-  
+<section class="ventajas">
+<h2>⭐ ¿Por qué comprar en TRIDADO?</h2>
+<p>✔ Productos impresos en 3D</p>
+<p>✔ Diseños únicos</p>
+<p>✔ Compra rápida por WhatsApp</p>
+<p>✔ Emprendimiento independiente</p>
 </section>
-</div>
 
-<div id="carrito">
+<section class="carrito">
 
-<h2>Carrito</h2>
+<h2>🛒 Carrito</h2>
 
 <ul id="lista"></ul>
 
 <p>Total: $<span id="total">0</span></p>
 
-<button onclick="enviar()">Enviar pedido por WhatsApp</button>
+<button onclick="enviar()">Comprar por WhatsApp</button>
 
-</div>
- 
+</section>
+
+<section class="como-comprar">
+
+<h2>📦 Cómo comprar</h2>
+
+<p>1️⃣ Elegí el producto</p>
+<p>2️⃣ Agrégalo al carrito</p>
+<p>3️⃣ Envía el pedido por WhatsApp</p>
+<p>4️⃣ Coordinamos entrega</p>
+
+</section>
 
 <footer>
 
-<p>Sígueme en Instagram</p>
-
-<a href="https://www.instagram.com/t_r_i_d_a_d_o/" target="_blank">
-@t_r_i_d_a_d_o
-</a>
-
-<p>© 2026 TRIDADO - Todos los derechos reservados</p>
+<p>© 2026 TRIDADO</p>
+<p>Instagram: @t_r_i_d_a_d_o</p>
 
 </footer>
 
-<div class="redes">
+<a class="flotante whatsapp" href="https://wa.me/5492212231836" target="_blank">💬</a>
 
-<a href="https://wa.me/549TU_NUMERO" target="_blank" class="wsp">
-WhatsApp
-</a>
+<a class="flotante instagram" href="https://instagram.com/t_r_i_d_a_d_o" target="_blank">📸</a>
 
-<a href="https://www.instagram.com/t_r_i_d_a_d_o/" target="_blank" class="ig">
-Instagram
-</a>
+<script>
 
-</div>
+let carrito = [];
+let total = 0;
 
-<script src="script.js"></script>
+function agregar(nombre,precio){
+
+carrito.push({nombre,precio});
+total += precio;
+
+actualizar();
+
+}
+
+function eliminar(i){
+
+total -= carrito[i].precio;
+carrito.splice(i,1);
+
+actualizar();
+
+}
+
+function actualizar(){
+
+let lista = document.getElementById("lista");
+lista.innerHTML="";
+
+carrito.forEach((p,i)=>{
+
+lista.innerHTML += `<li>${p.nombre} - $${p.precio} <button onclick="eliminar(${i})">❌</button></li>`;
+
+});
+
+document.getElementById("total").innerText = total;
+
+}
+
+function enviar(){
+
+let mensaje="Pedido:%0A";
+
+carrito.forEach(p=>{
+
+mensaje += p.nombre + " - $" + p.precio + "%0A";
+
+});
+
+mensaje += "%0ATotal: $" + total;
+
+window.open("https://wa.me/5492212231836?text="+mensaje);
+
+}
+
+</script>
 
 </body>
 </html>
