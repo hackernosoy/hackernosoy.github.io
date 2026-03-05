@@ -1,277 +1,221 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TRIDADO</title>
-
 <meta name="google-adsense-account" content="ca-pub-4754170332242714">
-
 <style>
-
+/* Body y fondo */
 body{
-font-family: Arial;
-background:#111 url("https://www.transparenttextures.com/patterns/cubes.png");
-color:white;
-margin:0;
-text-align:center;
+  font-family: Arial;
+  background:#111 url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-size:200px;
+  animation:moverFondo 60s linear infinite;
+  color:white;
+  margin:0;
+  text-align:center;
 }
 
+/* Animación del fondo */
+@keyframes moverFondo{
+  0%{background-position:0 0;}
+  100%{background-position:600px 600px;}
+}
+
+/* Header */
 header{
-background:#000;
-padding:20px;
+  background:#000;
+  padding:40px 20px;
+  font-size:48px;
+  font-weight:bold;
+  text-align:center;
+  letter-spacing:2px;
 }
 
-</style>
-
-header{
-background:#000;
-padding:20px;
-font-size:32px;
-font-weight:bold;
+/* Secciones */
+.como, .ventajas, .productos, .carrito{
+  padding:40px;
+  margin-top:60px;
 }
 
-.como{
-padding:40px;
-}
-
-.ventajas{
-padding:40px;
-}
-
+/* Productos */
 .productos{
-display:flex;
-justify-content:center;
-gap:30px;
-padding:40px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
 }
 
 .producto{
-background:#1c1c1c;
-padding:20px;
-border-radius:10px;
-width:220px;
+  background:#1c1c1c;
+  padding:20px;
+  border-radius:10px;
+  width:220px;
 }
 
 .stock{
-font-size:14px;
-color:#00e676;
+  font-size:14px;
+  color:#00e676;
 }
 
 button{
-background:#00c853;
-border:none;
-padding:10px;
-color:white;
-border-radius:5px;
-cursor:pointer;
-margin-top:10px;
+  background:#00c853;
+  border:none;
+  padding:10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+  margin-top:10px;
 }
 
 button:hover{
-background:#00e676;
+  background:#00e676;
 }
 
 .agotado{
-background:#444;
-cursor:not-allowed;
+  background:#444;
+  cursor:not-allowed;
 }
 
+/* Carrito */
 .carrito{
-background:#1c1c1c;
-margin:30px;
-padding:20px;
-border-radius:10px;
+  background:#1c1c1c;
+  border-radius:10px;
 }
 
+/* Footer */
 footer{
-background:#000;
-padding:20px;
-margin-top:40px;
+  background:#000;
+  padding:20px;
+  margin-top:40px;
 }
 
+/* Responsive celulares */
+@media (max-width: 768px){
+  .productos{
+    flex-direction: column;
+    align-items: center;
+    padding:20px;
+  }
+  .producto{
+    width:90%;
+    margin-bottom:20px;
+  }
+  button{
+    width:100%;
+  }
+}
 </style>
-
 </head>
-
 <body>
 
 <header>
 TRIDADO
 </header>
 
-  
-</section>
-
-<!-- VENTAJAS -->
-<section class="ventajas">
-
-<h2>⭐ Ventajas</h2>
-
-<p>✔ Productos hechos con impresión 3D</p>
-<p>✔ Diseños originales</p>
-<p>✔ Emprendimiento independiente</p>
-<p>✔ Compra fácil por WhatsApp</p>
-
-  <!-- COMO COMPRAR -->
+<!-- Cómo comprar -->
 <section class="como">
-
 <h2>📦 Cómo comprar</h2>
-
 <p>1️⃣ Elegí el producto</p>
 <p>2️⃣ Agrégalo al carrito</p>
 <p>3️⃣ Envía el pedido por WhatsApp</p>
 <p>4️⃣ Coordinamos entrega</p>
-
-
 </section>
 
-<!-- PRODUCTOS -->
+<!-- Ventajas -->
+<section class="ventajas">
+<h2>⭐ Ventajas</h2>
+<p>✔ Productos hechos con impresión 3D</p>
+<p>✔ Diseños originales</p>
+<p>✔ Emprendimiento independiente</p>
+<p>✔ Compra fácil por WhatsApp</p>
+</section>
+
+<!-- Productos -->
 <section class="productos">
-
 <div class="producto">
-
 <h3>Generala</h3>
-
 <p>$7000</p>
-
 <p class="stock">Stock: <span id="stockGenerala">5</span></p>
-
-<button id="btnGenerala" onclick="agregar('Generala',7000,'Generala')">
-Agregar al carrito
-</button>
-
+<button id="btnGenerala" onclick="agregar('Generala',7000,'Generala')">Agregar al carrito</button>
 </div>
 
 <div class="producto">
-
 <h3>4 en Raya</h3>
-
 <p>$9000</p>
-
 <p class="stock">Stock: <span id="stock4enRaya">5</span></p>
-
-<button id="btn4enRaya" onclick="agregar('4 en Raya',9000,'4enRaya')">
-Agregar al carrito
-</button>
-
+<button id="btn4enRaya" onclick="agregar('4 en Raya',9000,'4enRaya')">Agregar al carrito</button>
 </div>
-
 </section>
 
-<!-- CARRITO -->
+<!-- Carrito -->
 <section class="carrito">
-
 <h2>🛒 Carrito</h2>
-
 <ul id="lista"></ul>
-
 <p>Total: $<span id="total">0</span></p>
-
 <button onclick="enviar()">Comprar por WhatsApp</button>
-
 </section>
 
 <footer>
-
 <p>© 2026 TRIDADO</p>
-<p>Instagram: @t_r_i_d_a_d_o</p>
-
+<p>Instagram: <a href="https://instagram.com/t_r_i_d_a_d_o" target="_blank" style="color:white;">@t_r_i_d_a_d_o</a></p>
 </footer>
 
 <script>
-
 let carrito = [];
 let total = 0;
+let stock = { Generala:5, "4enRaya":5 };
 
-let stock = {
-Generala:5,
-"4enRaya":5
-};
-
-function agregar(nombre,precio,id){
-
-if(stock[id] <= 0) return;
-
-carrito.push({nombre,precio});
-total += precio;
-
-stock[id]--;
-
-actualizar();
-actualizarStock();
-
+function agregar(nombre, precio, id){
+  if(stock[id] <= 0) return;
+  carrito.push({nombre, precio});
+  total += precio;
+  stock[id]--;
+  actualizar();
+  actualizarStock();
 }
 
 function eliminar(i){
-
-let producto = carrito[i].nombre;
-
-if(producto === "Generala") stock.Generala++;
-if(producto === "4 en Raya") stock["4enRaya"]++;
-
-total -= carrito[i].precio;
-carrito.splice(i,1);
-
-actualizar();
-actualizarStock();
-
+  let producto = carrito[i].nombre;
+  if(producto === "Generala") stock.Generala++;
+  if(producto === "4 en Raya") stock["4enRaya"]++;
+  total -= carrito[i].precio;
+  carrito.splice(i,1);
+  actualizar();
+  actualizarStock();
 }
 
 function actualizar(){
-
-let lista = document.getElementById("lista");
-lista.innerHTML="";
-
-carrito.forEach((p,i)=>{
-
-lista.innerHTML += `<li>${p.nombre} - $${p.precio} <button onclick="eliminar(${i})">❌</button></li>`;
-
-});
-
-document.getElementById("total").innerText = total;
-
+  let lista = document.getElementById("lista");
+  lista.innerHTML = "";
+  carrito.forEach((p,i)=>{
+    lista.innerHTML += `<li>${p.nombre} - $${p.precio} <button onclick="eliminar(${i})">❌</button></li>`;
+  });
+  document.getElementById("total").innerText = total;
 }
 
 function actualizarStock(){
-
-document.getElementById("stockGenerala").innerText = stock.Generala;
-document.getElementById("stock4enRaya").innerText = stock["4enRaya"];
-
-if(stock.Generala === 0){
-let b = document.getElementById("btnGenerala");
-b.innerText="Agotado";
-b.classList.add("agotado");
-}
-
-if(stock["4enRaya"] === 0){
-let b = document.getElementById("btn4enRaya");
-b.innerText="Agotado";
-b.classList.add("agotado");
-}
-
+  document.getElementById("stockGenerala").innerText = stock.Generala;
+  document.getElementById("stock4enRaya").innerText = stock["4enRaya"];
+  if(stock.Generala === 0){
+    let b = document.getElementById("btnGenerala");
+    b.innerText="Agotado"; b.classList.add("agotado");
+  }
+  if(stock["4enRaya"] === 0){
+    let b = document.getElementById("btn4enRaya");
+    b.innerText="Agotado"; b.classList.add("agotado");
+  }
 }
 
 function enviar(){
-
-let mensaje="Pedido:%0A";
-
-carrito.forEach(p=>{
-
-mensaje += p.nombre + " - $" + p.precio + "%0A";
-
-});
-
-mensaje += "%0ATotal: $" + total;
-
-window.open("https://wa.me/5492212231836?text="+mensaje);
-
+  let mensaje="Pedido:%0A";
+  carrito.forEach(p=>{
+    mensaje += p.nombre + " - $" + p.precio + "%0A";
+  });
+  mensaje += "%0ATotal: $" + total;
+  window.open("https://wa.me/5492212231836?text="+mensaje);
 }
-
 </script>
 
 </body>
