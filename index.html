@@ -6,7 +6,7 @@
 <title>TRIDADO</title>
 <meta name="google-adsense-account" content="ca-pub-4754170332242714">
 <style>
-/* Body y fondo */
+/* Body y fondo animado */
 body{
   font-family: Arial;
   background:#111 url("https://www.transparenttextures.com/patterns/cubes.png");
@@ -17,7 +17,6 @@ body{
   text-align:center;
 }
 
-/* Animación del fondo */
 @keyframes moverFondo{
   0%{background-position:0 0;}
   100%{background-position:600px 600px;}
@@ -38,25 +37,7 @@ header{
   padding:40px;
   margin-top:60px;
 }
-<div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://tridado.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 /* Productos */
 .productos{
   display:flex;
@@ -235,6 +216,6 @@ function enviar(){
   window.open("https://wa.me/5492212231836?text="+mensaje);
 }
 </script>
-<script id="dsq-count-scr" src="//tridado.disqus.com/count.js" async></script>
+
 </body>
 </html>
