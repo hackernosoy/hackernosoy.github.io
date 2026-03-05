@@ -1,6 +1,7 @@
 body{
 font-family: Arial;
-background:#f2f2f2;
+background:#111;
+color:white;
 text-align:center;
 }
 
@@ -9,18 +10,13 @@ margin-top:20px;
 }
 
 .producto{
-background:white;
+background:#1e1e1e;
 padding:20px;
 margin:15px;
 display:inline-block;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+box-shadow:0 0 10px rgba(0,0,0,0.5);
 width:200px;
-}
-
-.producto img{
-width:100%;
-border-radius:10px;
 }
 
 button{
@@ -34,9 +30,13 @@ margin-top:10px;
 }
 
 #carrito{
-background:white;
+background:#1e1e1e;
 padding:20px;
 margin-top:30px;
 border-radius:10px;
 display:inline-block;
+}
+
+li{
+margin:10px;
 }
