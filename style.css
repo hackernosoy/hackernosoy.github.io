@@ -3,20 +3,36 @@ font-family: Arial;
 background:#111;
 color:white;
 text-align:center;
+margin:0;
 }
 
-h1{
-margin-top:20px;
+.titulo{
+padding:40px;
+}
+
+.titulo h1{
+font-size:60px;
+letter-spacing:5px;
+margin:0;
+}
+
+.titulo p{
+color:gray;
+}
+
+.productos{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .producto{
 background:#1e1e1e;
 padding:20px;
-margin:15px;
-display:inline-block;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.5);
 width:200px;
+box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 
 button{
@@ -40,11 +56,11 @@ display:inline-block;
 li{
 margin:10px;
 }
+
 footer{
-margin-top:40px;
+margin-top:50px;
 padding:20px;
 background:#0a0a0a;
-color:white;
 }
 
 footer a{
@@ -52,6 +68,7 @@ color:#25D366;
 text-decoration:none;
 font-weight:bold;
 }
+
 .redes{
 position:fixed;
 bottom:20px;
