@@ -1,9 +1,10 @@
 body{
 font-family: Arial;
-background:#111;
+background-image: url("https://www.transparenttextures.com/patterns/dice.png");
+background-color:#111;
 color:white;
-text-align:center;
 margin:0;
+text-align:center;
 }
 
 .titulo{
