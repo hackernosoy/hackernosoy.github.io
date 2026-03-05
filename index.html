@@ -1,43 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <title>Tienda TRIDADO</title>
-
-<style>
-body{
-font-family: Arial;
-background:#f5f5f5;
-text-align:center;
-}
-
-.producto{
-background:white;
-padding:15px;
-margin:15px;
-display:inline-block;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-width:200px;
-}
-
-button{
-background:#25D366;
-color:white;
-border:none;
-padding:10px;
-border-radius:5px;
-cursor:pointer;
-}
-
-#carrito{
-margin-top:30px;
-background:white;
-padding:20px;
-display:inline-block;
-border-radius:10px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -47,65 +14,33 @@ border-radius:10px;
 <div class="producto">
 <h3>Generala</h3>
 <p>$5000</p>
-<button onclick="agregar('Generala',5000)">Agregar</button>
+<button onclick="agregar('Generala',5000)">Agregar al carrito</button>
 </div>
 
 <div class="producto">
 <h3>4 en Raya</h3>
 <p>$6000</p>
-<button onclick="agregar('4 en Raya',6000)">Agregar</button>
+<button onclick="agregar('4 en Raya',6000)">Agregar al carrito</button>
 </div>
 
 <div class="producto">
 <h3>Dados</h3>
 <p>$3000</p>
-<button onclick="agregar('Dados',3000)">Agregar</button>
+<button onclick="agregar('Dados',3000)">Agregar al carrito</button>
 </div>
 
 <div id="carrito">
 <h2>Carrito</h2>
+
 <ul id="lista"></ul>
+
 <p>Total: $<span id="total">0</span></p>
 
 <button onclick="enviar()">Enviar pedido por WhatsApp</button>
+
 </div>
 
-<script>
-
-let carrito = []
-let total = 0
-
-function agregar(nombre,precio){
-
-carrito.push(nombre + " $" + precio)
-total += precio
-
-let lista = document.getElementById("lista")
-let item = document.createElement("li")
-item.textContent = nombre + " $" + precio
-lista.appendChild(item)
-
-document.getElementById("total").textContent = total
-
-}
-
-function enviar(){
-
-let mensaje = "Hola quiero comprar:%0A"
-
-carrito.forEach(p=>{
-mensaje += "- " + p + "%0A"
-})
-
-mensaje += "Total: $" + total
-
-let numero = "549TU_NUMERO"
-
-window.open("https://wa.me/" + numero + "?text=" + mensaje)
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
