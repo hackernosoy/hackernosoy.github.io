@@ -23,6 +23,13 @@ font-size:30px;
 font-weight:bold;
 }
 
+.carrito{
+background:#1c1c1c;
+margin:30px;
+padding:20px;
+border-radius:10px;
+}
+
 .productos{
 display:flex;
 justify-content:center;
@@ -50,13 +57,6 @@ margin-top:10px;
 
 button:hover{
 background:#00e676;
-}
-
-.carrito{
-background:#1c1c1c;
-margin:30px;
-padding:20px;
-border-radius:10px;
 }
 
 .ventajas{
@@ -106,6 +106,20 @@ bottom:20px;
 TRIDADO
 </header>
 
+<!-- CARRITO ARRIBA -->
+<section class="carrito">
+
+<h2>🛒 Carrito</h2>
+
+<ul id="lista"></ul>
+
+<p>Total: $<span id="total">0</span></p>
+
+<button onclick="enviar()">Comprar por WhatsApp</button>
+
+</section>
+
+<!-- PRODUCTOS -->
 <section class="productos">
 
 <div class="producto">
@@ -128,18 +142,6 @@ TRIDADO
 <p>✔ Diseños únicos</p>
 <p>✔ Compra rápida por WhatsApp</p>
 <p>✔ Emprendimiento independiente</p>
-</section>
-
-<section class="carrito">
-
-<h2>🛒 Carrito</h2>
-
-<ul id="lista"></ul>
-
-<p>Total: $<span id="total">0</span></p>
-
-<button onclick="enviar()">Comprar por WhatsApp</button>
-
 </section>
 
 <section class="como-comprar">
